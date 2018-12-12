@@ -8,7 +8,7 @@ namespace Ex36_Observer_Pattern_2
 {
     public class Person
     {
-        public string _name;
+        protected string _name;
 
         public string Name
         {

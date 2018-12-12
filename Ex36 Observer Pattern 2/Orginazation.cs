@@ -8,7 +8,7 @@ namespace Ex36_Observer_Pattern_2
 {
     public class Orginazation
     {
-        public string name;
+        protected string name;
         private string address;
 
         public string Name
