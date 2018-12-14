@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+public delegate void NotifyHandler();
 namespace Ex36_Observer_Pattern_2
 {
     public class Academy : Orginazation, IAcademy
     {
-        private List<IStudent> students = new List<IStudent>();
+        private List<NotifyHandler> students = new List<NotifyHandler>();
         private string message;
 
         public string Message
@@ -32,17 +33,17 @@ namespace Ex36_Observer_Pattern_2
 
         public void Attach(IStudent student)
         {
-            students.Add(student);
+            students.Add(student.Update);
         }
         public void Detach(IStudent student)
         {
-            students.Remove(student);
+            students.Remove(student.Update);
         }
         public void Notify()
         {
-            foreach (Student stu in students)
+            foreach (var stu in students)
             {
-                stu.Update();
+                stu();
             }
         }
     }
